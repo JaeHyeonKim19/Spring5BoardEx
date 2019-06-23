@@ -75,13 +75,21 @@ public class BoardMapperTests {
 //		int count = mapper.update(board);
 //		log.info("UPDATE COUNT: "+count);
 //	}
-	
+//	
+//	@Test
+//	public void testPaging() {
+//		Criteria cri = new Criteria();
+//		cri.setPageNum(2);
+//		cri.setAmount(5);
+//		List<BoardVO> list = mapper.getListWithPaging(cri);
+//		list.forEach(board -> log.info(board));
+//	}
 	@Test
-	public void testPaging() {
+	public void testSearch() {
 		Criteria cri = new Criteria();
-		cri.setPageNum(2);
-		cri.setAmount(5);
+		cri.setKeyword("새로");
+		cri.setType("");//반드시 1.조건없는경우2.단일조건경우3.다중조건경우 모두 테스트 할 것.
 		List<BoardVO> list = mapper.getListWithPaging(cri);
-		list.forEach(board -> log.info(board));
+		list.forEach(board->log.info(board));
 	}
 }
